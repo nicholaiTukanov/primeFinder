@@ -2,14 +2,9 @@
 #include <stdio.h>
 #include <math.h>
 
-void printVals(long long int *primes,int lenP){
-	for(int i=0;i<lenP;i++){
-		printf("%d. %lld\n", i+1, primes[i]);
-	}
-}
-
 int main(int argc, char **argv){
 
+	FILE *file = fopen("primes.txt", "w+");
 	int i = 2, p_i = 0;
 	int p = atoi(*(argv+1));
 	long long int x = pow(10,p);
@@ -22,17 +17,17 @@ int main(int argc, char **argv){
 		prime = 1;
 
 		for(p_i = 0 ;p_i < lenP; ++p_i){
-
 			int curPrime = primes[p_i];
 			if(i%curPrime == 0)	
 				prime = 0;
 		}
 
-		if(prime != 0){	
+		if(prime != 0){
+			fprintf(file,"%d\n", i);	
 			primes[lenP] = i;
 			++lenP;
 		}
 	}
 
-	printVals(primes,lenP);
+	fclose(file);
 }
