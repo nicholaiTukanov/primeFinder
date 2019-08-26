@@ -12,14 +12,13 @@ int main(int argc, char **argv){
 	/* Create a text file named primes to store all the numbers */
 	FILE *file = fopen("primes.txt", "w+");
 	
-	/* Ignore 1 as prime */
 	int i = 2;
 	
 	/* Index for prime number */
 	int p_i = 0;
 	
 	/* 10^p will be the limit 
-		NOTE: the runtime is LONG. It is O(10^p * k) where k is the dependent on the growth of lenP.
+		NOTE: the runtime is LONG. It is O(10^p * k) where k is the dependent on the growth of lenP (~nlogn).
 		Do not put in arguments that are greater than 6 or else you'll be stuck waiting for a long time.
 		Will be looking to do more research into speeding it up in my free time. 
 	*/
